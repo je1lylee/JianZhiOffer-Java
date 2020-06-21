@@ -26,3 +26,26 @@ class Solution04_01 {
 }
 ```
 
+#### 解法2（书上的解法)		
+
+​		首先选取数组中右上角的数字。如果该数字等于要查找的数字，则查找过程结束：如果该数字大于要查找的数字，则剔除这个数字所在的列；如果该数字小于要查找的数字，则剔除这个数字所在的行。也就是说如果要查找的数字不在数组的右上角，则每一个都在数组的查找范围中剔除一行或者一列。这样每一步都可以缩小查找的范围，直到找到要查找的数字。或者查找范围为空。
+
+````java
+class Solution04_02 {
+    public boolean findNumberIn2DArray(int[][] matrix, int target) {
+        if (matrix.length == 0 || matrix[0].length == 0 || matrix[0][0] > target || matrix[matrix.length - 1][matrix[matrix.length - 1].length - 1] < target)
+            return false;
+        int row = 0;
+        int col = matrix[0].length - 1;
+        while (row < matrix.length && col >= 0) {
+            if (matrix[row][col] == target)
+                return true;
+            else if (matrix[row][col] > target)
+                --col;
+            else ++row;
+        }
+        return false;
+    }
+}
+````
+
