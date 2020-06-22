@@ -13,6 +13,7 @@ class Solution04_02 {
             return false;
         int row = 0;
         int col = matrix[0].length - 1;
+        //如果行数小于矩阵的行数 同时列数>=0 执行循环
         while (row < matrix.length && col >= 0) {
             if (matrix[row][col] == target)
                 return true;
