@@ -1,44 +1,39 @@
-package top.linxixixiangxin.offer08;
+package top.linxixixiangxin.offer09;
 
 import java.util.Stack;
 
-public class solution01 {
+public class solution02 {
     public static void main(String[] args) {
-        CQueue08_01 cQueue = new CQueue08_01();
-        cQueue.appendTail(3);
+        CQueue09_02 cQueue = new CQueue09_02();
         System.out.println(cQueue.deleteHead());
+        cQueue.appendTail(5);
+        cQueue.appendTail(2);
         System.out.println(cQueue.deleteHead());
         System.out.println(cQueue.deleteHead());
 
     }
 }
-
-class CQueue08_01 {
+class CQueue09_02 {
     private Stack<Integer> main = new Stack<>();
     private Stack<Integer> temp = new Stack<>();
-
-    public CQueue08_01() {
+    public CQueue09_02() {
 
     }
 
     public void appendTail(int value) {
-        if (main.size() == 0) {
-            main.push(value);
-            return;
-        }
-        while (main.size() > 0) {
-            //清空main中的元素
-            temp.push(main.pop());
-        }
         main.push(value);
-        while (temp.size() > 0) {
-            main.push(temp.pop());
-        }
     }
 
     public int deleteHead() {
-        if (main.size() == 0) return -1;
-        return main.pop();
+        if(main.size() == 0 && temp.size() == 0) return -1;
+        if(temp.size() == 0){
+            while (main.size() != 0){
+                temp.push(main.pop());
+            }
+            return temp.pop();
+        }else{
+            return temp.pop();
+        }
     }
 }
 

@@ -1,10 +1,10 @@
-package top.linxixixiangxin.offer08;
+package top.linxixixiangxin.offer09;
 
 import java.util.Stack;
 
-public class solution02 {
+public class solution01 {
     public static void main(String[] args) {
-        CQueue08_02 cQueue = new CQueue08_02();
+        CQueue09_01 cQueue = new CQueue09_01();
         cQueue.appendTail(3);
         System.out.println(cQueue.deleteHead());
         System.out.println(cQueue.deleteHead());
@@ -12,11 +12,12 @@ public class solution02 {
 
     }
 }
-class CQueue08_02 {
+
+class CQueue09_01 {
     private Stack<Integer> main = new Stack<>();
     private Stack<Integer> temp = new Stack<>();
 
-    public CQueue08_02() {
+    public CQueue09_01() {
 
     }
 
