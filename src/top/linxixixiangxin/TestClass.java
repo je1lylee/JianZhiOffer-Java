@@ -1,12 +1,11 @@
 package top.linxixixiangxin;
 
+import java.util.UUID;
 import java.util.Vector;
 
 public class TestClass {
-    public float aFun(float a,float b){return 0;}
+    public static void main(String[] args) {
+        Object object = new Object();
+    }
 
-}
-class Child extends TestClass{
-    @Override
-    public float aFun(float v,float q){return 0;}
 }
