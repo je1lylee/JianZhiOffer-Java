@@ -11,7 +11,7 @@ public class solution02 {
     }
 }
 class Solution10_01_02 {
-    public int fib(int N) {
+    public int fib(int n) {
 
         return 0;
     }
