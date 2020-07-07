@@ -46,3 +46,34 @@ class Solution14_01 {
 }
 ````
 
+#### 解法2
+
+​		当n>=5的时候，我们可以证明2(n-2)>n并且3(n-3)>n。也就是说，当绳子剩下的长度大于或等于5的时候，我们就把他剪成长度为3或者2的绳子段。另外当n>=5的时候3(n-3) >= 2(n-2)，因此我么应该尽可能地多剪长度为3的绳子段。
+
+````java
+class Solution14_01_02 {
+    public int cuttingRope(int n) {
+        if(n < 2){
+            return 0;
+        }else if(n == 2){
+            return 1;
+        }else if(n == 3){
+            return 2;
+        }else{
+            //以n = 10为例
+            //timesOf3 = 3
+            int timesOf3 = n /3;
+            //10 - 3*3 == 1 TRUE
+            if(n - timesOf3 * 3 == 1){
+                //timesOf3 = 2
+                timesOf3 -=1;
+            }
+            // timesOf2 = (10 - 2 * 3) /2 = 2;
+            int timesOf2 = (n -timesOf3 * 3) /2;
+            //3^2 * 2^2 = 9*4 = 36
+            return (int)Math.pow(3,timesOf3) * (int)Math.pow(2,timesOf2);
+        }
+    }
+}
+````
+
