@@ -33,4 +33,28 @@ class Solution18_01 {
 
 #### 解法2
 
-​		
+​		使用双指针，一个指针指向当前元素，另一个指针指向当前元素的上一个元素。
+
+````java
+class Solution18_02 {
+    public ListNode deleteNode(ListNode head, int val) {
+        if(head.val == val){
+            return head.next;
+        }
+        ListNode before = head;
+        ListNode now = head.next;
+        while (now != null){
+            if(now.val == val){
+                before.next = now.next;
+                break;
+            }
+            before = now;
+            now = now.next;
+        }
+        return head;
+    }
+}
+````
+
+
+
