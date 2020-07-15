@@ -23,6 +23,6 @@ class Solution20_01{
     }
 
     public boolean core(String s,Integer index){
-
+        return false;
     }
 }
