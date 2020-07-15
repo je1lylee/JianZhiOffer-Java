@@ -15,7 +15,7 @@ class Solution21_01 {
             return nums;
         }
         int head = 0, butt = nums.length - 1;
-        while (head != butt && head < nums.length  && butt >= 0 && head < butt) {
+        while (head < butt) {
             if (nums[head] % 2 != 0) {
                 //是奇数的话，就不动了
                 head++;
