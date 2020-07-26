@@ -12,6 +12,12 @@ public class TestClass {
     int b = 20;
     static int c = 1;
     public static void main(String args[]) {
+        char chr = 127;
+        int sum = 200;
+        chr += 1;
+        System.out.println(chr);
+        sum += chr;
+        System.out.println(sum);
     }
 
 
