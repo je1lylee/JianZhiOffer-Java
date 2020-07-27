@@ -14,6 +14,7 @@ public class TestClass {
     public static void main(String args[]) {
         char chr = 127;
         int sum = 200;
+        sum = sum++;
         chr += 1;
         System.out.println(chr);
         sum += chr;
