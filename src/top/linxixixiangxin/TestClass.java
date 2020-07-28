@@ -8,17 +8,10 @@ import java.net.URL;
 import java.util.*;
 
 public class TestClass {
-    private int a = 10;
-    int b = 20;
-    static int c = 1;
     public static void main(String args[]) {
-        char chr = 127;
-        int sum = 200;
-        sum = sum++;
-        chr += 1;
-        System.out.println(chr);
-        sum += chr;
-        System.out.println(sum);
+        String str1 = "hello";
+        String str2 = "hel" + new String("llo");
+        System.out.println(str1 == str2);
     }
 
 
