@@ -3,9 +3,6 @@ package top.linxixixiangxin.offer35;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * 先创建每个节点的next 并存储到Map<Integer,Node>中，来得到映射，进而完成random关系的关联
- */
 public class solution01 {
     public static void main(String[] args) {
         Node a7 = new Node(7);
