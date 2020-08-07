@@ -28,6 +28,11 @@ class Node{
         left = _left;
         right = _right;
     }
+    //For debug
+    @Override
+    public String toString() {
+        return this.val+"";
+    }
 }
 class Solution36_01 {
     /**
@@ -50,17 +55,17 @@ class Solution36_01 {
         return head;
     }
     void dfs(Node cur) {
-        //访问到叶子节点
+        //访问到叶子节点 不再继续向下访问
         if(cur == null) return;
         //继续遍历！左侧 ！
         dfs(cur.left);
         //如果前面的节点不为空  则前一个节点的右侧为当前节点 修改双向节点引用
         if(pre != null) pre.right = cur;
-        //如果为空 代表正在访问头节点 则头节点为当前节点 此处的头节点指得是链表的头节点
+        //如果为空 代表正在访问头节点 头节点左侧暂不赋值 则头节点为当前节点 此处的头节点指得是链表的头节点
         else head = cur;
-        //当前节点的左侧为之前的节点
+        //当前节点的左侧为之前的节点 第一次赋值的时候会赋值为null
         cur.left = pre;
-        //之前的节点 保存cur 节点cur是猴急节点的pre
+        //之前的节点 保存cur 节点cur是后继节点的pre
         pre = cur;
         //递归！右侧节点！
         dfs(cur.right);
