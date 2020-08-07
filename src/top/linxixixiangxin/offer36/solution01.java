@@ -1,6 +1,16 @@
 package top.linxixixiangxin.offer36;
 
 public class solution01 {
+    public static void main(String[] args) {
+        Node a1 = new Node(1);
+        Node a3 = new Node(3);
+        Node a2 = new Node(2);
+        Node a5 = new Node(5);
+        Node a4 = new Node(4);
+        a4.left = a2;a4.right = a5;
+        a2.left = a1;a2.right = a3;
+        Node res = new Solution36_01().treeToDoublyList(a4);
+    }
 }
 class Node{
     public int val;
@@ -46,7 +56,7 @@ class Solution36_01 {
         dfs(cur.left);
         //如果前面的节点不为空  则前一个节点的右侧为当前节点 修改双向节点引用
         if(pre != null) pre.right = cur;
-        //如果为空 代表正在访问头节点 则头节点为当前节点
+        //如果为空 代表正在访问头节点 则头节点为当前节点 此处的头节点指得是链表的头节点
         else head = cur;
         //当前节点的左侧为之前的节点
         cur.left = pre;
