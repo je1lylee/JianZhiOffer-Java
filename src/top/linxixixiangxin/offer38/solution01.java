@@ -5,6 +5,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class solution01 {
+    public static void main(String[] args) {
+        String[] res = new Solution38_01().permutation("abcde");
+        for (String re : res) {
+            System.out.println(re);
+        }
+    }
 }
 class Solution38_01{
     //结果集
@@ -34,7 +40,7 @@ class Solution38_01{
         HashSet<Character> set = new HashSet<>();
         for(int i = x; i < c.length; i++) {
             //c[i]在Set中 代表其是重复字符
-            if(set.contains(c[i])) continue; // 重复，因此剪枝
+            if(set.contains(c[i])) continue; // 重复，因此剪枝(跳过本次循环）
             //加入set 以便遇到重复字符时剪枝
             set.add(c[i]);
             //固定字符 即固定c[i]为当前位字符
