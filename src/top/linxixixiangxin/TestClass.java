@@ -3,41 +3,39 @@ package top.linxixixiangxin;
 import java.util.*;
 
 public class TestClass {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int x = scanner.nextInt();
-        for(int k = 0;k<x;k++){
-            //原数组
-            String rawData = scanner.next();
-            //拼接后的字符串
-            StringBuilder string = new StringBuilder();
-            char tempA = '0',tempB = '0';boolean isDouble = false;
-            for(int i = 0;i<rawData.length();i++){
-                //已经检测到前面有两个一样的元素了
-                if(isDouble){
-                    if(rawData.charAt(i) == tempA){
-                        tempA = '0';
-                        isDouble = false;
-                        continue;
-                    }else if(rawData.charAt(i) != tempA && tempB == '0'){
-                        tempB = rawData.charAt(i);
-                    }else if (rawData.charAt(i) != tempA && rawData.charAt(i) == tempB){
-                        tempA = '0';
-                        tempB = '0';
-                        isDouble = false;
-                        continue;
-                    }
+    static int n, ans, sum;
+    static int[] a = new int[100000];
 
-                }else{
-                    string.append(rawData.charAt(i));
-                    if (tempA == '0' || tempA != string.charAt(i)){
-                        tempA = rawData.charAt(i);
-                    }else if(tempA == rawData.charAt(i)){
-                        isDouble = true;
-                    }
-                }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        //读入测试数据条数
+        int T = sc.nextInt();
+        for (int i = 0; i < T; i++) {
+            //读入物品个数
+            n = sc.nextInt();
+            //所有商品总价格
+            sum = 0;
+            //读入每个商品的价格，并计算商品总价值
+            for (int j = 0; j < n; j++) {
+                a[j] = sc.nextInt();
+                sum += a[j];
             }
-            System.out.println(string);
+            ans = sum;
+            //开始dfs
+            dfs(0, 0, 0);
+            System.out.println(ans);
         }
+    }
+
+    public static void dfs(int op, int x, int y) {
+        if (op >= n) {
+            System.out.println("op = " + op + "x = " + x + "y = " + y);
+            if (x == y) ans = Math.min(ans, sum - x - y);
+            return;
+
+        }
+        dfs(op + 1, x + a[op], y);
+        dfs(op + 1, x, y + a[op]);
+        dfs(op + 1, x, y);
     }
 }
