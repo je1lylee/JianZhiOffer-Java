@@ -3,39 +3,44 @@ package top.linxixixiangxin;
 import java.util.*;
 
 public class TestClass {
-    static int n, ans, sum;
-    static int[] a = new int[100000];
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        //读入测试数据条数
-        int T = sc.nextInt();
-        for (int i = 0; i < T; i++) {
-            //读入物品个数
-            n = sc.nextInt();
-            //所有商品总价格
-            sum = 0;
-            //读入每个商品的价格，并计算商品总价值
-            for (int j = 0; j < n; j++) {
-                a[j] = sc.nextInt();
-                sum += a[j];
+        //n是不超过n的前提下有多少逆序数
+        long n = sc.nextLong();
+        long lowerNumber = 2178;
+        int targetNumberCount = 0;
+        ArrayList<String> res = new ArrayList<>();
+        //保证某个数乘以4后还在n的范围区间内
+        while (lowerNumber*4 <= n){
+            String highNumber = String.valueOf(lowerNumber*4);
+            String copyOfLowNumber = String.valueOf(lowerNumber);
+            boolean isOK = true;
+            if(highNumber.length() == copyOfLowNumber.length()){
+                for(int i = 0;i<highNumber.length();i++){
+                    if(getDigit(copyOfLowNumber,i) != getDigit(highNumber,copyOfLowNumber.length()-i)){
+                        isOK = false;
+                        break;
+                    }
+                }
             }
-            ans = sum;
-            //开始dfs
-            dfs(0, 0, 0);
-            System.out.println(ans);
+            if(isOK){
+                res.add(copyOfLowNumber);
+                res.add(highNumber);
+                targetNumberCount++;
+            }
+            highNumber += 1;
+        }
+        if(targetNumberCount == 0){
+            System.out.println(0);
+        }else{
+            System.out.println(targetNumberCount);
+            for(int i = 0;i<res.size();i+=2){
+                System.out.printf("%s %s",res.get(i),res.get(i+1));
+            }
         }
     }
-
-    public static void dfs(int op, int x, int y) {
-        if (op >= n) {
-            System.out.println("op = " + op + "x = " + x + "y = " + y);
-            if (x == y) ans = Math.min(ans, sum - x - y);
-            return;
-
-        }
-        dfs(op + 1, x + a[op], y);
-        dfs(op + 1, x, y + a[op]);
-        dfs(op + 1, x, y);
+    static int getDigit(String number,int index){
+        Character c = number.charAt(index);
+        return Integer.parseInt(c.toString());
     }
 }

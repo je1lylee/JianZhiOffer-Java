@@ -1,9 +1,9 @@
-package top.linxixixiangxin.other.netease.xiaozhao2020;
+package top.linxixixiangxin.other.meituan2020.xiaotuandelvxingxianlu;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class chengji {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         long n = sc.nextLong();
@@ -42,5 +42,4 @@ public class chengji {
         }
         System.out.println(tripsCount);
     }
-
 }
