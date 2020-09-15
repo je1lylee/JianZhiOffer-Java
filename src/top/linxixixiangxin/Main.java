@@ -1,11 +1,13 @@
 package top.linxixixiangxin;
 
-import java.lang.reflect.Array;
-import java.math.BigDecimal;
-import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-
+        magic(0);
+    }
+    public static int magic(int testNum){
+        if (testNum > 10) return testNum;
+        System.out.println(magic(testNum+1));
+        return testNum;
     }
 }

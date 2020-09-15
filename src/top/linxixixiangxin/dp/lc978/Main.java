@@ -2,7 +2,7 @@ package top.linxixixiangxin.dp.lc978;
 
 public class Main {
     public static void main(String[] args) {
-
+        String test = "";test += 'd';
     }
 }
 
@@ -16,9 +16,6 @@ class Solution978_01 {
             status = true;
         }else if(A[1] < A[0]){
             status = false;
-        }
-        for(int i= 2;i<A.length;i++){
-            if ()
         }
         return 0;
     }
