@@ -14,9 +14,6 @@ public class Main {
             Integer root = sc.nextInt();
             String part = sc.next();
             Integer value = sc.nextInt();
-            if(Garbage.contains(root)){
-
-            }
 
         }
     }

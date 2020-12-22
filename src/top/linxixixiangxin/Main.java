@@ -1,13 +1,25 @@
 package top.linxixixiangxin;
 
+import java.time.temporal.Temporal;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        magic(0);
+        Scanner scanner = new Scanner(System.in);
+        String next = scanner.next();
+        scanner.close();
+        System.out.println(decode(next));
     }
-    public static int magic(int testNum){
-        if (testNum > 10) return testNum;
-        System.out.println(magic(testNum+1));
-        return testNum;
+
+    public static String decode(String words){
+        while (words.contains("]")){
+            int right = words.indexOf("]");
+            int left = words.lastIndexOf("[", right);
+            String repeatStr = words.substring(left+1, right);
+            String[] split = repeatStr.split("\\|");
+            words = words.replace("["+repeatStr+"]",
+                    String.join("", Collections.nCopies(Integer.parseInt(split[0]), split[1])));
+        }
+        return words;
     }
 }
